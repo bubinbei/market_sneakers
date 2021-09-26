@@ -6,6 +6,10 @@ function Card({num, prise}) {
   console.log('====================================');
   return (
     <div className="card">
+      <div className="favorite">
+      <img src="/img/heart-off.svg" alt="heart"/>
+
+      </div>
           <img width={133} height={112} src = {num} alt="Sneakers" />
           <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
           <div className="d-flex justify-between align-center">

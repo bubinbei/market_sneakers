@@ -6,9 +6,22 @@ import Card from '../Card/Card'
 function App() {
   return (
     <div className="wrapper clear">
+      <div className="overlay">
+        <div className="drawer">
+          <h2>Корзина</h2>
+
+          <div className="cartItem d-flex align-center">
+            <img className="mr-20" width={70} height={70} src="/img/sneakers/1.jpg" alt="Sneakers" />
+            <div className="mr-20">
+              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
+              <b>12 999 руб.</b>
+            </div>
+            <img className="btnDelete" src="/img/Delete.svg" alt="Delete" />
+          </div>
+        </div>
+      </div>
       <header className="d-flex justify-between aling-center p-40">
-        {/* <div className="headerLeft"> */}
-        <div className="d-flex align-center">
+        <div c  lassName="d-flex align-center">
           <img width={60} height={60} src="/img/m_pngegg.png" />
           <div  >
             <h3 className="text-uppercase">React Sneakers</h3>
@@ -23,9 +36,13 @@ function App() {
        </ul>
       </header>
       <div className="content p-40">
-        <h1>
-        Все кросcовки  
-        </h1>
+        <div className="d-flex aligh-center justify-between mb-40">
+          <h1> Все кросcовки </h1>
+          <div className="search-block d-flex">
+            <img src="/img/Search.svg" alt="Search" />
+            <input placeholder="Поиск..." />
+          </div>
+        </div>
         <div className="d-flex">
           <Card key = {1} prise = {1} num = {"/img/sneakers/1.jpg"}/>
           <Card key = {2} prise = {2} num = {"/img/sneakers/2.jpg"}/>
