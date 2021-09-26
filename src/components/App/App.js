@@ -7,10 +7,12 @@ function App() {
   return (
     <div className="wrapper clear">
       <div className="overlay">
-        <div className="drawer">
+        <div className="drawer d-flex flex-column">
           <h2>Корзина</h2>
+          <div className="item flex">
 
           <div className="cartItem d-flex align-center">
+
             <img className="mr-20" width={70} height={70} src="/img/sneakers/1.jpg" alt="Sneakers" />
             <div className="mr-20">
               <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
@@ -18,6 +20,20 @@ function App() {
             </div>
             <img className="btnDelete" src="/img/Delete.svg" alt="Delete" />
           </div>
+          <ul className="cartTotalBlock">
+            <li>
+              <span>Итого:</span>
+              <div></div>
+              <b>21333 руб.</b>
+            </li>
+            <li>
+              <span>НДС:</span>
+              <div></div>
+              <b>1 045 руб.</b>
+            </li>
+          </ul>
+        </div>
+        <button>оформить заказ</button>
         </div>
       </div>
       <header className="d-flex justify-between aling-center p-40">
