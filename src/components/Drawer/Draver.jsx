@@ -3,9 +3,14 @@ import React from 'react';
 function Draver(props) {
   return (
     <div>
-      <div style ={{display:'none'}} className="overlay">
+      {/* <div style ={{display:'none'}} className="overlay"> */}
+      <div className="overlay">
         <div className="drawer d-flex flex-column">
+          <div className="headDrawer d-flex justify-between aling-center mb-20">
           <h2>Корзина</h2>
+          <img className="cu-p " width={33} height={33} src="/img/Delete.svg" alt="Delete drawer" onClick={props.onClickCar}/>
+
+          </div>
           <div className="item flex">
 
           <div className="cartItem d-flex align-center mb-20">

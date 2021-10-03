@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Header(props) {
   return (
@@ -12,7 +12,8 @@ function Header(props) {
           </div>
         </div>
        <ul className="d-flex align-center">
-         <li className="mr-30"><img width={20} height={20} src="/img/car.svg" />
+         <li className="mr-30">
+          <img className="cu-p" width={20} height={20} src="/img/car.svg" onClick={props.onClickCar}/>
           <span>1505 руб.</span>
          </li>
          <li><img width={20} height={20} src="/img/user.svg" /></li>

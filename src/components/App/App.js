@@ -1,11 +1,13 @@
 
 import './App.scss'
 import 'macro-css'
+import { useEffect, useState } from 'react';
 import Card from '../Card/Card'
 import Header from '../Header/Header';
 import Drawer from '../Drawer/Draver'
 
 function App() {
+  const [items, setItems] = useState([])
     const arr = [{
       name:"Мужские Кроссовки Nike Blazer Mid Suede",
       key:1,
@@ -37,11 +39,18 @@ function App() {
                 prise:2,
                 num: "/img/sneakers/3.jpg"}
     ]
-    
+  useEffect (()=>{
+    fetch('https://6159ea49601e6f0017e5a350.mockapi.io/items')
+    .then(res => res.json())
+    .then(req => setItems(req))
+  },[])
+
+  const [car, setCar] = useState(false)
+ 
   return (
-    <div className="wrapper clear">
-      <Drawer />
-      <Header />
+    <div className = "wrapper clear">
+          {car && <Drawer onClickCar={ () => setCar(false) }/>}
+          <Header onClickCar={ () => setCar(true) } />
       <div className="content p-40">
         <div className="d-flex aligh-center justify-between mb-40">
           <h1> Все кросcовки </h1>
@@ -50,8 +59,8 @@ function App() {
             <input placeholder="Поиск..." />
           </div>
         </div>
-        <div className="d-flex">
-          {arr.map(data => 
+        <div className="d-flex flex-wrap">
+          {items.map(data => 
           <Card data = {data}/>
             )}
           
@@ -62,3 +71,4 @@ function App() {
 }
 
 export default App;
+

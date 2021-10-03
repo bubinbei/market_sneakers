@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Card.module.scss'
 
 function Card({data}) {
   const [add, setAdd] = useState(false)
   const onClickAdd = () => setAdd(!add)
   const {num, prise, name} = data
-  
 
   return (
     <div className={styles.card}>
@@ -18,9 +17,9 @@ function Card({data}) {
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
               <span>Цена:</span>
-              <b>{prise*1000} руб.</b>
+              <b>{prise} руб.</b>
             </div>
-              <img onClick={onClickAdd} src={add?"/img/chek.svg":"/img/plus2.svg"} alt="Plus"/>
+              <img className="cu-p" onClick={onClickAdd} src={add?"/img/chek.svg":"/img/plus2.svg"} alt="Plus"/>
             </div>
         </div>
   );
