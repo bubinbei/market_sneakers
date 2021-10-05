@@ -1,36 +1,45 @@
 import React from 'react';
 
-function Draver(props) {
+function Draver({itemsCar=[], onClickCar, deleteItemCar}) {
+  console.log('====================================');
+  console.log(itemsCar);
+  console.log('====================================');
   return (
     <div>
       {/* <div style ={{display:'none'}} className="overlay"> */}
       <div className="overlay">
         <div className="drawer d-flex flex-column">
           <div className="headDrawer d-flex justify-between aling-center mb-20">
-          <h2>Корзина</h2>
-          <img className="cu-p " width={33} height={33} src="/img/Delete.svg" alt="Delete drawer" onClick={props.onClickCar}/>
-
+          <h2>Корзина{itemsCar.length == 0 &&' пуста'}</h2>
+          <img  className="cu-p " 
+                width={33} 
+                height={33} 
+                src="/img/Delete.svg" 
+                alt="Delete drawer" 
+                onClick={onClickCar}
+          />
           </div>
+        
           <div className="item flex">
-
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/sneakers/1.jpg" alt="Sneakers" />
+          {itemsCar.map((data, index )=> 
+          <div key={index}
+             className="cartItem d-flex align-center mb-20">
+            <img  className="mr-20" 
+                  width={70} 
+                  height={70} 
+                  src={data.num}
+                  alt="Sneakers" />
             <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
+              <p className="mb-5">{data.name}</p>
+              <b>{data.price}</b>
             </div>
-            <img className="btnDelete" src="/img/Delete.svg" alt="Delete" />
+            <img  className="btnDelete" 
+                  src="/img/Delete.svg" 
+                  alt="Delete"
+                  onClick={() => deleteItemCar(data.key)}
+            />
           </div>
-
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/sneakers/1.jpg" alt="Sneakers" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
-            </div>
-            <img className="btnDelete" src="/img/Delete.svg" alt="Delete" />
-          </div>
-        </div>
+            )}
 
           <ul className="cartTotalBlock mb-20">
             <li>
@@ -47,6 +56,7 @@ function Draver(props) {
           </ul>
         </div>
       </div>
+    </div>
     </div>
   );
 }
