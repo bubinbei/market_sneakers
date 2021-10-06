@@ -22,14 +22,21 @@ function App() {
     .then(res => setItemsCar(res.data))
   },[])
   const onClickCar = () => setCar(!car)
+  const onSearchInput = (event) => setSearchValue(event.target.value)
+
   const addItemsCar = (item) => {
     axios.post('https://6159ea49601e6f0017e5a350.mockapi.io/cart', item)
     setItemsCar(prev => [...prev, item])}
-  const onSearchInput = (event) => setSearchValue(event.target.value);
-  const deleteItemCar = (item) => {
-    axios.delete(`https://6159ea49601e6f0017e5a350.mockapi.io/cart/${item}`)
-    console.log("deleteItemCar" + item);
-    setItemsCar(prev => prev.filter(el=>el.key!==item))}
+    
+  const addItemsFavorit = (item) => {
+    axios.post('https://6159ea49601e6f0017e5a350.mockapi.io/favorit', item)
+    setItemsCar(prev => [...prev, item])}
+
+  const deleteItemCar = (id) => {
+    axios.delete(`https://6159ea49601e6f0017e5a350.mockapi.io/cart/${id}`)
+    console.log("deleteItemCar - " + id);
+    setItemsCar(prev => prev.filter(item=>item.id!==id))}
+
   return (
     <div className = "wrapper clear">
           {car && <Drawer deleteItemCar={deleteItemCar} itemsCar={itemsCar} onClickCar={onClickCar}/>}
@@ -55,6 +62,7 @@ function App() {
           .map((data, index) => 
           <Card 
           key={index}
+          addItemsFavorit={addItemsFavorit}
           addItemsCar={addItemsCar} 
           data = {data}/>
             )}

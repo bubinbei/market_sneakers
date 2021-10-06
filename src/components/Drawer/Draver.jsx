@@ -31,17 +31,17 @@ function Draver({itemsCar=[], onClickCar, deleteItemCar}) {
                   alt="Sneakers" />
             <div className="mr-20">
               <p className="mb-5">{data.name}</p>
-              <b>{data.price}</b>
+              <b>{data.prise} p.</b>
             </div>
             <img  className="btnDelete" 
                   src="/img/Delete.svg" 
                   alt="Delete"
-                  onClick={() => deleteItemCar(data.key)}
+                  onClick={() => deleteItemCar(data.id)}
             />
           </div>
             )}
-
-          <ul className="cartTotalBlock mb-20">
+          
+          {itemsCar.length > 0 && <ul className="cartTotalBlock mb-20">
             <li>
               <span>Итого:</span>
               <div></div>
@@ -53,7 +53,7 @@ function Draver({itemsCar=[], onClickCar, deleteItemCar}) {
               <b>1 045 руб.</b>
             </li>
             <button>оформить заказ</button>
-          </ul>
+          </ul>}
         </div>
       </div>
     </div>

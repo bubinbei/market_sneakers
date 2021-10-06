@@ -12,9 +12,8 @@ function Header(props) {
           </div>
         </div>
        <ul className="d-flex align-center">
-         <li className="mr-30">
+         <li className="mr-30 cu-p">
           <img 
-          className="cu-p" 
           width={20} 
           height={20} 
           src="/img/car.svg" 
@@ -22,14 +21,12 @@ function Header(props) {
           alt="car"/>
           <span>1505 руб.</span>
          </li>
-         <li>
-           <img 
-           width={20} 
-           height={20} 
-           src="/img/user.svg" 
-           alt="user"
-           />
-           </li>
+          <li className="mr-30 cu-p">
+           <img width={21} height={21} src="/img/heart.svg" alt="heart"/>
+          </li>
+          <li className="mr-20 cu-p">
+           <img width={20} height={20} src="/img/user.svg" alt="user"/>
+          </li>
        </ul>
       </header>
     </>
